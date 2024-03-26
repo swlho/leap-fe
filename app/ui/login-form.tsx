@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
+import Link from 'next/link';
 
 export default function LoginForm() {
   return (
@@ -66,8 +67,8 @@ export default function LoginForm() {
 
 function LoginButton() {
   return (
-    <Button className="mt-4 w-full">
+    <Link className="flex items-center gap-5 self-start rounded-lg bg-green-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-400 md:text-base" href="/dashboard">
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-    </Button>
+    </Link>
   );
 }

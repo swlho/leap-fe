@@ -1,3 +1,3 @@
 export default function Page() {
-    return <p>Ponds</p>;
+    return <p>My Ponds</p>;
   }
