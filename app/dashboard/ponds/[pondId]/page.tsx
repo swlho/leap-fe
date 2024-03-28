@@ -1,3 +1,5 @@
+//NEED TO REFACTOR TO USE USEEFFECT INSTEAD
+
 import { getPondById } from "@/app/lib/data"
 
 const PondPage = async ({params}:{params:{id:string}})=>{
