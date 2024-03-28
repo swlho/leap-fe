@@ -35,3 +35,24 @@ export class Post implements IPost {
         this.type = type;
     }
 }
+
+export interface IUser {
+    username: string;
+    password: string;
+    email: string;
+}
+export class User implements IUser {
+    username: string;
+    password: string;
+    email: string;
+
+    constructor(
+        username: string,
+        password: string,
+        email: string
+    ) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+}
