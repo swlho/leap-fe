@@ -1,14 +1,4 @@
-export interface IPost {
-    topic_id: string;
-    post_body: string;
-    title: string;
-    user_id: string;
-    votes: number;
-    post_image: string;
-    type: any[];
-}
-
-export class Post implements IPost {
+export class Post {
     topic_id: string;
     post_body: string;
     title: string;
@@ -36,12 +26,7 @@ export class Post implements IPost {
     }
 }
 
-export interface IUser {
-    username: string;
-    password: string;
-    email: string;
-}
-export class User implements IUser {
+export class User {
     username: string;
     password: string;
     email: string;
@@ -54,5 +39,24 @@ export class User implements IUser {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+}
+
+export class Comment {
+    comment_body: string;
+    user_id: string;
+    post_id: string;
+    votes: string;
+
+    constructor(
+        comment_body: string,
+        user_id: string,
+        post_id: string,
+        votes: string
+    ) {
+        this.comment_body = comment_body;
+        this.user_id = user_id;
+        this.post_id = post_id;
+        this.votes = votes
     }
 }
