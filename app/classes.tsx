@@ -1,20 +1,4 @@
-export interface IPost {
-    topic_id: string;
-    post_body: string;
-    title: string;
-    user_id: string;
-    votes: number;
-    post_image: string;
-    type: any[];
-}
-
-export interface IPond {
-    id: string;
-    topic_name: string;
-    summary: string;
-}
-
-export class Post implements IPost {
+export class Post {
     topic_id: string;
     post_body: string;
     title: string;
@@ -42,7 +26,7 @@ export class Post implements IPost {
     }
 }
 
-export class Pond implements IPond {
+export class Pond {
     id: string;
     topic_name: string;
     summary: string;
