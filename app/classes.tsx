@@ -41,3 +41,38 @@ export class Pond {
         this.summary = summary;
     }
 }
+
+export class User {
+    username: string;
+    password: string;
+    email: string;
+
+    constructor(
+        username: string,
+        password: string,
+        email: string
+    ) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+}
+
+export class Comment {
+    comment_body: string;
+    user_id: string;
+    post_id: string;
+    votes: string;
+
+    constructor(
+        comment_body: string,
+        user_id: string,
+        post_id: string,
+        votes: string
+    ) {
+        this.comment_body = comment_body;
+        this.user_id = user_id;
+        this.post_id = post_id;
+        this.votes = votes
+    }
+}
