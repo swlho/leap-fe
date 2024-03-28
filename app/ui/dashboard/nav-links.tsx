@@ -8,7 +8,7 @@ import {
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  { name: 'Topics', href: '/dashboard/topics', icon: UserGroupIcon },
+  { name: 'Ponds', href: '/dashboard/ponds', icon: UserGroupIcon },
   {
     name: 'My Ponds',
     href: '/dashboard/myponds',
