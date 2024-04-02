@@ -39,7 +39,7 @@ return (
 <SearchBar placeholder="Search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
 <SearchButton placeholder="search-button"/>
 </form>
-<p>{testState}</p>
+{/* <p>{testState}</p> */}
 </>
 )
 }
