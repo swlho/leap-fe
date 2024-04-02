@@ -1,4 +1,20 @@
-export class Post {
+export interface IPost {
+    topic_id: string;
+    post_body: string;
+    title: string;
+    user_id: string;
+    votes: number;
+    post_image: string;
+    type: any[];
+}
+
+export interface IPond {
+    id: string;
+    topic_name: string;
+    summary: string;
+}
+
+export class Post implements IPost {
     topic_id: string;
     post_body: string;
     title: string;
@@ -26,37 +42,18 @@ export class Post {
     }
 }
 
-export class User {
-    username: string;
-    password: string;
-    email: string;
+export class Pond implements IPond {
+    id: string;
+    topic_name: string;
+    summary: string;
 
     constructor(
-        username: string,
-        password: string,
-        email: string
-    ) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-}
-
-export class Comment {
-    comment_body: string;
-    user_id: string;
-    post_id: string;
-    votes: string;
-
-    constructor(
-        comment_body: string,
-        user_id: string,
-        post_id: string,
-        votes: string
-    ) {
-        this.comment_body = comment_body;
-        this.user_id = user_id;
-        this.post_id = post_id;
-        this.votes = votes
+        id: string,
+        topic_name: string,
+        summary: string
+    )   {
+        this.id = id;
+        this.topic_name = topic_name;
+        this.summary = summary;
     }
 }

@@ -1,10 +1,11 @@
-import CardWrapper from "../ui/dashboard/cards";
+import DashboardContainer from "../ui/dashboard/DashboardContainer"
 
 export default function Page() {
     return (
       <>
-      <p>Dashboard Home Page</p>
-      <CardWrapper/>
+      <p>Welcome Haz!</p>
+      <br></br>
+      <DashboardContainer/>
       </>
     )
   }

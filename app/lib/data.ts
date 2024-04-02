@@ -40,6 +40,18 @@ export async function getPondById(id){
     return res.json()
 }
 
+//querying Render/MongoDB get pond by pond name
+//if pond doesn't exist, BE will make a api call to AI to generate a new topic/pond summary and return this to the FE
+export async function getPondByName(pond:string){
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/topic/${pond}`)
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
+
 //POSTS
 
   export async function getPosts(){
