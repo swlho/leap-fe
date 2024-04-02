@@ -3,7 +3,6 @@
 import { getPonds, postPond } from "@/app/lib/data"
 import SearchBar from "./searchBar"
 import SearchButton from "./SearchButton"
-import { useState } from "react"
 
 type Props = {
     searchTerm: string;
@@ -14,12 +13,10 @@ type Props = {
 
 export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult}:Props) {
 
-
-    // const [testState, setTestState] = useState('')
-
     const handleSubmit = async (event:any) => {
         event.preventDefault()
         setSearchTerm(searchTerm)
+        setResultFound(false)
         //api call
         await getPonds()
         .then(({data})=>{
@@ -28,25 +25,18 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
                 setResult(pondData[0].summary)
                 setResultFound(true)
                 console.log('found!!!');
-                
             }
             else{
-                return pondData
-            }
-        }).then((pondData)=>{
-            
-            return postPond(searchTerm)
-             
-        }).then((pondData) => {
-            console.log(pondData);
-            console.log('generating')
-            setResult(pondData)
-            setResultFound(true)
-                
+            postPond(searchTerm)
+                .then(({data})=>{
+                    console.log("generating AI response")
+                    const summaryData = data[0].summary
+                    setResult(summaryData)
+                    setResultFound(true)
             })
+            }
+        })
     }
-
-    
 
     const handleChange = (event:any) => {
         setSearchTerm(event.target.value)
@@ -59,7 +49,6 @@ return (
 <SearchBar placeholder="Search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
 <SearchButton placeholder="search-button"/>
 </form>
-{/* <p>{testState}</p> */}
 </>
 )
 }
