@@ -17,7 +17,7 @@ export default function ResultBox ({result}:Props) {
         />
     </div>
     <div>
-        <PondPreviewCard/>
+        {/* <PondPreviewCard/> */}
     </div>
     </>
         )

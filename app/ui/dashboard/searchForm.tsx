@@ -1,5 +1,6 @@
 'use client'
 
+import { getPonds } from "@/app/lib/data"
 import SearchBar from "./searchBar"
 import SearchButton from "./SearchButton"
 import { useState } from "react"
@@ -11,21 +12,27 @@ type Props = {
     setResult: any;
 }
 
-export default function SearchForm ({searchTerm, setSearchTerm, setResultFound}:Props) {
+export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult}:Props) {
 
 
     // const [testState, setTestState] = useState('')
 
-    const handleSubmit = (event:any) => {
+    const handleSubmit = async (event:any) => {
         event.preventDefault()
-        console.log(searchTerm)
+
         setSearchTerm(searchTerm)
         //api call
-        //getPondByName(searchTerm)
-        //.then(({data})=>{
-            //setResult(data)
-            //setResultFound(true)
-        // })
+        await getPonds()
+        .then(({data})=>{
+            const result = data[0].filter((pond:any) => pond.topic_name === searchTerm)
+            if(result.length !== 0){
+                setResult(result)
+            }
+            else{
+                console.log('no pond found')
+            }
+
+        })
     }
 
     const handleChange = (event:any) => {
