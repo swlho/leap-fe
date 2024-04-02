@@ -11,7 +11,7 @@ export default function ResultBox ({result}:Props) {
         <TypeAnimation
         sequence={[`${result}`]}
         omitDeletionAnimation={true}
-        speed={400}
+        speed={125}
         wrapper='p'
         className='result-text'
         />

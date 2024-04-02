@@ -53,11 +53,13 @@ export async function getPondByName(pond:string){
 
 export async function postPond(pond:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/topic/${pond}`, {method: 'POST', mode: 'no-cors'})
-  if (!res.ok) {
+  if (res.status !== 200) {
+    console.log(res);
+    
       // This will activate the closest `error.js` Error Boundary
       throw new Error('Failed to fetch data')
     }
-    return res.json()
+    return await res.json()
 }
 
 
