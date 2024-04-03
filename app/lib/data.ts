@@ -10,7 +10,7 @@ export async function getUsers(){
     return res.json()
 }
 
-export async function getUserById(id){
+export async function getUserById(id:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/user/${id}`)
   if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -31,7 +31,7 @@ export async function getPonds(){
     return res.json()
 }
 
-export async function getPondById(id){
+export async function getPondById(id:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/topic/${id}`)
   if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -76,7 +76,7 @@ export async function postPond(pond:string){
       return res.json()
 }
 
-export async function getPostById(id){
+export async function getPostById(id:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/post/${id}`)
   if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
@@ -97,7 +97,7 @@ export async function getComments(){
     return res.json()
 }
 
-export async function getCommentById(id){
+export async function getCommentById(id:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/comment/${id}`)
   if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary

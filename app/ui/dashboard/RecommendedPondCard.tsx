@@ -3,6 +3,7 @@
 import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Link from "next/link"
 import { lusitana } from '@/app/ui/fonts';
+import CreateJoinButton from "./CreateJoinButton";
 
 export default function RecommendedPondCard(props:any){
     const {mappedPond} = props
@@ -19,6 +20,7 @@ export default function RecommendedPondCard(props:any){
         <h3 className="ml-2 text-2xl font-medium">{topic_name}</h3>
             <p className={`${lusitana.className}
     truncate rounded-xl bg-white px-4 py-8 text-center text-sm`}>{summary}</p>
+        <CreateJoinButton/>
         </div>
         </div>
     </Link>

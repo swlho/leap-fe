@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { getPondById } from "@/app/lib/data";
 import { useState } from "react";
 import CreateJoinButton from "./CreateJoinButton";
