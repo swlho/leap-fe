@@ -2,7 +2,7 @@
 
 import { getPondById } from "@/app/lib/data"
 
-const PondPage = async ({params}:{params:{id:string}})=>{
+const PondPage = async ({params}:{params:{pondId:string}})=>{
     const pondData = await getPondById(params.pondId)
     .then(({data})=>{
         return data[0]

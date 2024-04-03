@@ -1,16 +1,18 @@
+'use client'
+
 import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Link from "next/link"
 import { lusitana } from '@/app/ui/fonts';
 
 export default function RecommendedPondCard(props:any){
-    const {pond} = props
-    const {id, topic_name, summary} = pond
+    const {mappedPond} = props
+    const {id, topic_name, summary} = mappedPond
 
     const Icon = UserGroupIcon
 
     return (
 
-        <Link href={`ponds/${id}`}>
+        <Link href={`/dashboard/ponds/${id}`}>
         <div key={id} className="rounded-xl bg-gray-50 p-2 shadow-sm flex flex-col justify-start border-solid border-2 m-3">
         <div className="p-4">
         <Icon className="h-5 w-5 text-gray-700" />
