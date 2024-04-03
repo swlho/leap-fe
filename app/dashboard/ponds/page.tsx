@@ -15,6 +15,11 @@ export default async function Page() {
     </Suspense>
     </>
   )
-  })
-return pondMap
+})
+return (
+<>
+<p className= 'font-lemonRegular text-4xl text-center p-4 pb-6'>All Ponds</p>
+{pondMap}
+</>
+)
 }

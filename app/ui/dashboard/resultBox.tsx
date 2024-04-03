@@ -6,9 +6,10 @@ type Props = {
     summaryDone: any;
     setSummaryDone:any;
     isFirstRequest:boolean
+    searchTerm:string;
 }
 
-export default function ResultBox ({result, summaryDone, setSummaryDone, isFirstRequest}:Props) {
+export default function ResultBox ({result, summaryDone, setSummaryDone, isFirstRequest,searchTerm}:Props) {
 
 
 
@@ -24,7 +25,7 @@ export default function ResultBox ({result, summaryDone, setSummaryDone, isFirst
         />
     </div>
     <div>
-        <PondJoinCardContainer result={result} summaryDone={summaryDone} isFirstRequest={isFirstRequest}/>
+        <PondJoinCardContainer result={result} summaryDone={summaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
     </div>
     </>
         )

@@ -16,7 +16,7 @@ export default function DashboardContainer(){
 return (
 <>
 <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResultFound={setResultFound} setResult={setResult} setSummaryDone={setSummaryDone} setIsFirstRequest={setIsFirstRequest}/>
-<ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest}/>
+<ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
 {/* <LeapFrogLoader/> */}
 <p className="text-xl m-5 font-semibold">Your Recommended Ponds</p>
 <RecommendedPondsContainer/>

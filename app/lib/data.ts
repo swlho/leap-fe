@@ -19,6 +19,21 @@ export async function getUserById(id:string){
     return res.json()
 }
 
+export async function putUserById(id:string,userUsername:string, userEmail:string,userTopicArr:any, userTopicId:string){
+  
+  const putBody = JSON.stringify({username:userUsername, email:userEmail, user_topics:[userTopicId, ...userTopicArr]})
+  
+  console.log(putBody,"in function")
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/user/${id}`, {method: 'PUT', headers: {'Content-Type':'application/json'}, mode: 'cors', body: putBody})
+  console.log(res)
+  const data = await res.json()
+  if (res.status !== 200) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+  return data
+}
+
 //PONDS
 
 export async function getPonds(){
