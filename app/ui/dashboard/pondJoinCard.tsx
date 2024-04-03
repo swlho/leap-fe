@@ -21,11 +21,11 @@ export default function PondJoinCard({result, isFirstRequest}:Props){
     }
 
 return isFirstRequest? 
-<div className={`${style}`}>
+<div className={style}>
     A pond for '{`${result.topic_name}`}' does not exist.  Would you like to create one and join?
     <CreateJoinButton isFirstRequest={isFirstRequest}/>
 </div> : 
-<div className={`${style}`}>
+<div className={style}>
     A pond for '{`${result.topic_name}`}' already exists.  Would you like to join?
     <CreateJoinButton isFirstRequest={isFirstRequest}/>
 </div>
