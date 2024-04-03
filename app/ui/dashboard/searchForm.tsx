@@ -28,7 +28,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
             if(pondData.length !== 0){
                 setResult(pondData[0])
                 setResultFound(true)
-                console.log('found in database!!!');
+                console.log('topic found in database!!!');
             }
             else{
             postPond(searchTerm)
@@ -49,7 +49,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
 return (
 <>
 <form onSubmit={handleSubmit}>
-<SearchBar placeholder="Ask Leap AI to search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
+<SearchBar placeholder="Use Leap AI to search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
 <SearchButton placeholder="search-button"/>
 </form>
 </>

@@ -2,13 +2,11 @@ import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  isFirstRequest:boolean;
 }
 
-type Props = {
-    isFirstRequest:boolean;
-}
-
-export default function CreateJoinButton({ children, className}: ButtonProps, {isFirstRequest}:Props){
+export default function CreateJoinButton({ children, className, isFirstRequest}: ButtonProps){
+    console.log(isFirstRequest)
     return (
       <button type="submit"
         className={clsx(
