@@ -14,7 +14,7 @@ export default function Page() {
             <strong className='font-lemonBold'>Welcome to Leap.</strong>
               <br></br><br></br>
               An AI-powered learning platform to help you leap before you learn.<br></br><br></br>
-              Get up to speed with any topic.  Connect with fellow Leapers to take your learning further
+              Get up to speed with any topic.  Connect with fellow Leapers to take your learning further.
           </p>
           <Link
             href="/login"
