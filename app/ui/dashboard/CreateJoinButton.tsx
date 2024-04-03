@@ -6,7 +6,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function CreateJoinButton({ children, className, isFirstRequest}: ButtonProps){
-    console.log(isFirstRequest)
     return (
       <button type="submit"
         className={clsx(
