@@ -1,15 +1,22 @@
 import { TypeAnimation } from "react-type-animation"
+import PondJoinCardContainer from "./pondJoinCardContainer";
 
 type Props = {
     result:any;
+    summaryDone: any;
+    setSummaryDone:any;
+    isFirstRequest:boolean
 }
 
-export default function ResultBox ({result}:Props) {
+export default function ResultBox ({result, summaryDone, setSummaryDone, isFirstRequest}:Props) {
+
+
+
     return (
     <>
     <div>
         <TypeAnimation
-        sequence={[`${result}`]}
+        sequence={[`${result.summary}`, ()=>setSummaryDone(true)]}
         omitDeletionAnimation={true}
         speed={125}
         wrapper='p'
@@ -17,7 +24,7 @@ export default function ResultBox ({result}:Props) {
         />
     </div>
     <div>
-        {/* <PondPreviewCard/> */}
+        <PondJoinCardContainer result={result} summaryDone={summaryDone} isFirstRequest={isFirstRequest}/>
     </div>
     </>
         )

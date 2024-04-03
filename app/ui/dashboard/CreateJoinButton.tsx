@@ -4,16 +4,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export default function SearchButton({ children, className, ...rest }: ButtonProps){
+type Props = {
+    isFirstRequest:boolean;
+}
+
+export default function CreateJoinButton({ children, className}: ButtonProps, {isFirstRequest}:Props){
     return (
       <button type="submit"
-        {...rest}
         className={clsx(
           'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
           className,
         )}
       >
-        {children}Leap!
+        {children}{isFirstRequest? 'Create & Join' : 'Join'}
       </button>
     );
   }

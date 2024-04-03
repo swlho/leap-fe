@@ -9,29 +9,33 @@ type Props = {
     setSearchTerm: any;
     setResultFound: any;
     setResult: any;
+    setSummaryDone:any;
+    setIsFirstRequest:any;
 }
 
-export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult}:Props) {
+export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult, setSummaryDone, setIsFirstRequest}:Props) {
 
     const handleSubmit = async (event:any) => {
         event.preventDefault()
         setSearchTerm(searchTerm)
         setResultFound(false)
+        setSummaryDone(false)
+        setIsFirstRequest(false)
         //api call
         await getPonds()
         .then(({data})=>{
-            const pondData = data[0].filter((pond:any) => pond.topic_name === searchTerm)            
+            const pondData = data[0].filter((pond:any) => pond.topic_name.toLowerCase() === searchTerm.toLowerCase())            
             if(pondData.length !== 0){
-                setResult(pondData[0].summary)
+                setResult(pondData[0])
                 setResultFound(true)
-                console.log('found!!!');
+                console.log('found in database!!!');
             }
             else{
             postPond(searchTerm)
                 .then(({data})=>{
                     console.log("generating AI response")
-                    const summaryData = data[0].summary
-                    setResult(summaryData)
+                    setIsFirstRequest(true)
+                    setResult(data[0])
                     setResultFound(true)
             })
             }
@@ -40,13 +44,12 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
 
     const handleChange = (event:any) => {
         setSearchTerm(event.target.value)
-        console.log(event.target.value)
     }
 
 return (
 <>
 <form onSubmit={handleSubmit}>
-<SearchBar placeholder="Search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
+<SearchBar placeholder="Ask Leap AI to search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
 <SearchButton placeholder="search-button"/>
 </form>
 </>
