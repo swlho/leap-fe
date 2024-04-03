@@ -4,6 +4,7 @@ import SearchForm from "./searchForm";
 import ResultContainer from "./resultContainer";
 import RecommendedPondsContainer from "./RecommendedPondsContainer";
 import { useState } from "react";
+// import LeapFrogLoader from "../LeapFrogLoader";
 
 export default function DashboardContainer(){
     const [searchTerm, setSearchTerm] = useState('')
@@ -16,6 +17,7 @@ return (
 <>
 <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResultFound={setResultFound} setResult={setResult} setSummaryDone={setSummaryDone} setIsFirstRequest={setIsFirstRequest}/>
 <ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest}/>
+{/* <LeapFrogLoader/> */}
 <RecommendedPondsContainer/>
 </>
 )

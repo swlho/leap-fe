@@ -1,20 +1,38 @@
+'use client'
+
 import RecommendedPondCard from "./RecommendedPondCard";
-import { Pond } from "@/app/classes";
-import { getPonds } from "@/app/lib/data";
+import { getPonds, getUserById } from "@/app/lib/data";
 import { Suspense } from "react";
 import Loading from "@/app/dashboard/ponds/loading";
+import { useEffect, useState } from "react";
 
-export default async function RecommendedPondsContainer(){
-    const {data} = await getPonds()
-    const pondMap = data[0].map((pond:any)=>{
-    pond = new Pond(pond.id,pond.topic_name,pond.summary)
-    return (
-      <>
-      <Suspense fallback={<Loading/>}>
-        <RecommendedPondCard key={pond.id} pond={pond}/>
-      </Suspense>
-      </>
-    )
+export default function RecommendedPondsContainer(){
+    const [pondsArr, setPondsArr] = useState([])
+    const [userPondsArr, setUserPondsArr] = useState([])
+
+    useEffect(()=>{
+        getPonds()
+        .then(({data})=>{
+            setPondsArr(data[0])
+        })
+        getUserById('660d383ed53a3ca35a0ff9d9')
+        .then(({data})=>{
+            setUserPondsArr(data[0].user_topics)
+        })
+    },[])
+
+    const pondsArrFilter = pondsArr.filter((pond)=>{
+        return !userPondsArr.includes(pond.id)
     })
-  return pondMap
+
+    const filteredPondsMap = pondsArrFilter.map((mappedPond)=>{
+        return (
+          <>
+          <Suspense fallback={<Loading/>}>
+            <RecommendedPondCard key={mappedPond.id} mappedPond={mappedPond}/>
+          </Suspense>
+          </>
+        )
+    })
+    return filteredPondsMap
 }
