@@ -15,6 +15,7 @@ export interface IPond {
 }
 
 export class Post implements IPost {
+    id: string; 
     topic_id: string;
     post_body: string;
     title: string;
@@ -24,6 +25,7 @@ export class Post implements IPost {
     type: any[];
 
     constructor(
+        id: string,
         topic_id: string,
         post_body: string,
         title: string,
@@ -32,6 +34,7 @@ export class Post implements IPost {
         post_image: string,
         type: any[]
     ) {
+        this.id = id;
         this.topic_id = topic_id;
         this.post_body = post_body;
         this.title = title;
