@@ -8,17 +8,25 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'quicksand': ['Quicksand', 'sans-serif'],
+        'sans': ['Roboto', 'sans-serif'],
+        'lemonRegular': ['LEMONMILK', 'sans-serif'],
+        'lemonBold': ['LEMONMILKBOLD', 'sans-serif'],
+        'lemonLight': ['LEMONMILKLIGHT', 'sans-serif'],
+
+      },
       gridTemplateColumns: {
         '13': 'repeat(13, minmax(0, 1fr))',
       },
       colors: {
         green: {
-          400: '#D9EDBF',
-          500: '#90D26D',
-          600: '#2C7865',
+          400: '#B1CFAD',
+          500: '#52886E',
+          600: '#42794C',
         },
         orange: {
-          400: '#E6A4B4'
+          400: '#0F243B'
         }
       },
     },
@@ -30,6 +38,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'),
+  require('@tailwindcss/typography')],
 };
 export default config;
