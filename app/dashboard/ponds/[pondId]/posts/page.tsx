@@ -3,6 +3,7 @@ import PostCard from "@/app/ui/Posts/postCard";
 import { getPosts } from "@/app/lib/data";
 import { Suspense } from "react";
 import Loading from "@/app/dashboard/ponds/loading";
+import PostForm from "@/app/ui/Posts/postForm";
 
 export default async function Page() {
   const {data} = await getPosts()
@@ -17,5 +18,10 @@ export default async function Page() {
     </>
   )
   })
-return PostMap
+return (
+  <div>
+    <PostForm/>
+    {PostMap}
+  </div>
+  )
 }

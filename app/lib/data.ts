@@ -100,6 +100,17 @@ export async function getPostById(id:string){
     return res.json()
 }
 
+export async function postPost(postBody: any){
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/post`, {method: 'POST', body: postBody, mode: 'cors'})
+  const data = await res.json()
+  if (res.status !== 200) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+  return data
+}
+
+
 //COMMENTS
 
 export async function getComments(){
