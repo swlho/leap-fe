@@ -1,12 +1,11 @@
 'use client'
 
-import { useState } from "react"
+
 import clsx from "clsx"
 import { postPost } from "@/app/lib/data"
 
-const PostForm = () =>{
-    const[question, setQuestion] = useState('')
-    const[body, setBody] = useState('')
+const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody}: any ) =>{
+    
 
     const handleQuestion = (event:any) => {
         setQuestion(event.target.value)
@@ -15,17 +14,24 @@ const PostForm = () =>{
 
     const handleDetails = (event:any) => {
         setBody(event.target.value)
-        
     }
 
-    const handleSubmit = async (event:any) => {
+    const handleSubmit = (event:any) => {
         event.preventDefault()
-        const postBody ={
+        setPostBody({
             title: question,
             body:body
-        }
-        const newPost = await postPost(postBody)
-    
+        })
+        postPost(postBody)
+        .then(({data}) => {
+          setBody('')
+          setQuestion('')
+        })
+        .catch((err:any) => {
+          setBody('')
+          setQuestion('')
+          console.log(err)
+        })
     }
     return(
       <form onSubmit={handleSubmit}>
