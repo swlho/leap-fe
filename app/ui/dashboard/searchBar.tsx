@@ -19,7 +19,7 @@ export default function SearchBar({ placeholder, searchTerm, setSearchTerm, hand
   // const {searchTerm, setSearchTerm, handleChange} = props
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0">
+    <div className="mb-3 relative flex flex-1 flex-shrink-0">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
