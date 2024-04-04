@@ -15,7 +15,7 @@ export default function DashboardContainer(){
     const [summaryDone, setSummaryDone] = useState(false)
 
 return (
-<>
+  <>
   <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResultFound={setResultFound} setResult={setResult} setSummaryDone={setSummaryDone} setIsFirstRequest={setIsFirstRequest}/>
   <ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
   <p className="text-2xl m-5 font-lemonRegular">Your Recommended Ponds</p>
@@ -24,4 +24,4 @@ return (
 )
 
 
-
+}
