@@ -4,7 +4,7 @@
 import clsx from "clsx"
 import { postPost } from "@/app/lib/data"
 
-const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody}: any ) =>{
+const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody, pondId}: any ) =>{
     
 
     const handleQuestion = (event:any) => {
@@ -18,14 +18,30 @@ const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody}:
 
     const handleSubmit = (event:any) => {
         event.preventDefault()
-        setPostBody({
-            title: question,
-            body:body
-        })
-        postPost(postBody)
+        const postcontent = {
+          title: question,
+          post_body:body,
+          topic_id: pondId,
+          user_id: "660d70386114563bf754fb5d",
+          post_image: "",
+          type: "post",
+          votes: 0
+        }
+        
+        setPostBody(postcontent)
+        postPost(postcontent)
         .then(({data}) => {
           setBody('')
           setQuestion('')
+          setPostBody({
+            title: "",
+            post_body: "",
+            topic_id: "",
+            user_id: "",
+            post_image: "",
+            type: "",
+            votes: 0
+          })
         })
         .catch((err:any) => {
           setBody('')
@@ -33,6 +49,7 @@ const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody}:
           console.log(err)
         })
     }
+      
     return(
       <form onSubmit={handleSubmit}>
         <h1>Ask a Question</h1>

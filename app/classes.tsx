@@ -30,9 +30,7 @@ export class Book implements IBook {
     snippet: string;
     title: string;
     link: string;
-    authors: [{
-        name: string;
-    }];
+    authors: any;
 
 
     constructor(
@@ -40,9 +38,7 @@ export class Book implements IBook {
         snippet: string,
         title: string,
         link: string,
-        authors: [{
-            name: string;
-        }]
+        authors: any
 
     ) {
         this.id = id;
