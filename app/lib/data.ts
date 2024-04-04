@@ -1,5 +1,7 @@
 //USERS
 
+import { stringify } from "querystring"
+
 export async function getUsers(){
   const res = await fetch("https://leap-backend-k05h.onrender.com/user")
   if (!res.ok) {
@@ -97,8 +99,22 @@ export async function getPostById(id:string){
     return res.json()
 }
 
+export async function getPostsByTopicId(id:string){
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/post/topic/${id}`)
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
 export async function postPost(postBody: any){
-  const res = await fetch(`https://leap-backend-k05h.onrender.com/post`, {method: 'POST', body: postBody, mode: 'cors'})
+  console.log("🚀 ~ postPost ~ postBody:", postBody)
+  
+  const postBodyJson = JSON.stringify(postBody)
+  console.log("🚀 ~ postPost ~ postBodyJson:", postBodyJson)
+
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/post`, {method: 'POST', headers: {'Content-Type':'application/json'}, body: postBodyJson, mode: 'cors'})
   const data = await res.json()
   if (res.status !== 200) {
       // This will activate the closest `error.js` Error Boundary
