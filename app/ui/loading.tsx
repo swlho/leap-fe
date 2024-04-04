@@ -1,9 +1,7 @@
+import React from 'react';
+
 const Loading: React.FC = () => {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  };
-  
-  export default Loading;
+  return <span className="loading loading-ring loading-lg text-info"></span>
+};
+
+export default Loading;
