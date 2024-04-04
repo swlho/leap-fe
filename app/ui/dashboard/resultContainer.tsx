@@ -1,5 +1,5 @@
 import ResultBox from "./resultBox";
-import Loading from "../loading";
+import LoadingAI from "../loadingAI";
 
 type Props = {
     resultFound:boolean;
@@ -16,7 +16,14 @@ export default function ResultContainer({resultFound, result, summaryDone,setSum
 
 return (
     isLoading?
-    <Loading/> :
+    <>
+    <div className="flex justify-center">
+    <div className="flex flex-col">
+    <h2>LeapAI is generating a response...</h2>
+    <LoadingAI/>
+    </div>
+    </div>
+    </> :
         resultFound?
         <div className="mt-4 mb-0.5">
         <p className="mb-4">Here is a summary of that topic:</p>

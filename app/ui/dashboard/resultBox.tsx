@@ -1,6 +1,5 @@
 import { TypeAnimation } from "react-type-animation"
 import PondJoinCardContainer from "./pondJoinCardContainer";
-import LoadingAI from "../loadingAI";
 
 type Props = {
     result:any;
@@ -8,19 +7,13 @@ type Props = {
     setSummaryDone:any;
     isFirstRequest:boolean
     searchTerm:string;
-    isLoading:boolean;
 }
 
-export default function ResultBox ({result, summaryDone, setSummaryDone, isFirstRequest,searchTerm, isLoading}:Props) {
+export default function ResultBox ({result, summaryDone, setSummaryDone, isFirstRequest,searchTerm}:Props) {
 
 
 
     return (
-        isLoading?
-    <>
-    <LoadingAI/> 
-    </>
-    :
     <>
     <div className="bg-green-400 rounded-lg p-5">
         <TypeAnimation
