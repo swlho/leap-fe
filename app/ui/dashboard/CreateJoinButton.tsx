@@ -7,7 +7,7 @@ import { useState } from 'react';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   isFirstRequest:boolean;
-  id:string
+  id:any;
   searchTerm:string;
 }
 
@@ -20,7 +20,7 @@ export default function CreateJoinButton({ children, className, isFirstRequest, 
 
   let [buttonText,setButtonText] = useState(isFirstRequest? 'Create & Join' : 'Join')
 
-  const handleClick = (event) =>{
+  const handleClick = (event:any) =>{
     getUserById('660d70386114563bf754fb5d')
     .then(({data})=>{
       const userTopicsArr = data[0].user_topics
@@ -38,7 +38,7 @@ export default function CreateJoinButton({ children, className, isFirstRequest, 
     })
   }
 
-  const handleClickToCreateAndJoin = (event) =>{
+  const handleClickToCreateAndJoin = (event:any) =>{
     postPond(searchTerm)
     .then(()=>{
       console.log("new pond created")
@@ -64,11 +64,11 @@ export default function CreateJoinButton({ children, className, isFirstRequest, 
       isFirstRequest? <button type="submit" onClick={handleClickToCreateAndJoin}
       className={buttonClicked}
     >
-      {children}{buttonText}
+      {buttonText}
     </button>: 
     <button type="submit" onClick={handleClick}
     className={buttonClicked}>
-    {children}{buttonText}
+    {buttonText}
   </button>
 
     );

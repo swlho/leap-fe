@@ -9,10 +9,9 @@ type Props = {
     isFirstRequest:boolean;
     searchTerm:string;
     isLoading:boolean;
-    setIsLoading:any;
 }
 
-export default function ResultContainer({resultFound, result, summaryDone,setSummaryDone, isFirstRequest, searchTerm, isLoading, setIsLoading}:Props){
+export default function ResultContainer({resultFound, result, summaryDone,setSummaryDone, isFirstRequest, searchTerm, isLoading}:Props){
 
 return (
     isLoading?
@@ -27,7 +26,7 @@ return (
         resultFound?
         <div className="mt-4 mb-0.5">
         <p className="mb-4">Here is a summary of that topic:</p>
-        <ResultBox result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm} isLoading={isLoading} setIsLoading={setIsLoading}/> 
+        <ResultBox result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm} />
         </div>
     : null
 

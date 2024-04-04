@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 'use client'
 
 import { getPonds, postPond } from "@/app/lib/data"
@@ -54,7 +55,7 @@ return (
 <>
 <form className="bg-gray-100 p-5 border-2 border-neutral-900 rounded-lg" onSubmit={handleSubmit} >
 <SearchBar placeholder="Use Leap AI to search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
-<SearchButton placeholder="search-button"/>
+<SearchButton placeholder="search-button" children={undefined}></SearchButton>
 </form>
 </>
 )

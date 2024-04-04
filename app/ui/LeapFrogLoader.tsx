@@ -1,6 +1,5 @@
 'use client'
 
-import {Helmet} from "react-helmet";
 import { frogScript } from "../lib/loaderScript";
 
 export default function LeapFrogLoader () {
@@ -18,9 +17,7 @@ export default function LeapFrogLoader () {
       </g>
       <path id="connector" d="M700,500c0-165.69-134.31-300-300-300S100,334.31,100,500" fill="none" stroke="#90D26D" strokeLinecap="round" strokeLinejoin="round" strokeWidth="50"/>	
     </g>
-    <Helmet>
     <script src={`${frogScript}`} async={true}></script>
-    </Helmet>
 </svg>
     )
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 'use client'
 
 import { UserGroupIcon } from "@heroicons/react/24/outline";
@@ -22,7 +23,7 @@ export default function RecommendedPondCard(props:any){
             </div>
         <p className={`line-clamp-1 rounded-xl bg-white p-5 py-5 mt-2 mb-10 text-center text-sm`}>{summary}</p>
         </Link>
-        <CreateJoinButton id={id}/>
+        <CreateJoinButton id={id} isFirstRequest={false} searchTerm={""}>children={undefined}</CreateJoinButton>
         </div>
         </div>
     )

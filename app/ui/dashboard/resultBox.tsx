@@ -1,4 +1,4 @@
-import { TypeAnimation } from "react-type-animation"
+import Typing from 'react-typing-animation';
 import PondJoinCardContainer from "./pondJoinCardContainer";
 
 type Props = {
@@ -16,13 +16,11 @@ export default function ResultBox ({result, summaryDone, setSummaryDone, isFirst
     return (
     <>
     <div className="bg-green-400 rounded-lg p-5">
-        <TypeAnimation
-        sequence={[`${result.summary}`, ()=>setSummaryDone(true)]}
-        omitDeletionAnimation={true}
-        speed={125}
-        wrapper='p'
+        <Typing
+        onFinishedTyping={()=>setSummaryDone(true)}
+        speed={300}
         className='result-text'
-        />
+        >{result.summary}</Typing>
     </div>
     <div>
         <PondJoinCardContainer result={result} summaryDone={summaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 
+const shimmer =
+  'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
 
-export function CardSkeleton(post, url) {
+export function CardSkeleton({post, url}:any) {
     return (
       <Link href={url}>
         <div
