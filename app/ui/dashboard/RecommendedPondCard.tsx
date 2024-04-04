@@ -13,13 +13,14 @@ export default function RecommendedPondCard(props:any){
 
     return (
 
-        <div key={id} className="rounded-xl bg-gray-50 p-2 shadow-sm flex flex-col justify-start border-solid border-2 m-3">
+        <div key={id} className="rounded-xl bg-gray-50 p-2 shadow-sm flex flex-col justify-start border-solid border-2 mt-3">
         <div className="p-4">
         <Link href={`/dashboard/ponds/${id}`}>
-        <Icon className="h-5 w-5 text-gray-700" />
-        <h3 className="ml-2 text-2xl font-medium">{topic_name}</h3>
-        <p className={`${lusitana.className}
-    truncate rounded-xl bg-white px-4 py-8 text-center text-sm`}>{summary}</p>
+            <div className="flex">
+                <Icon className="h-8 w-8 text-gray-700" />
+                <h3 className="ml-2 text-2xl font-lemonLight">{topic_name}</h3>
+            </div>
+        <p className={`line-clamp-1 rounded-xl bg-white p-5 py-5 mt-2 mb-10 text-center text-sm`}>{summary}</p>
         </Link>
         <CreateJoinButton id={id}/>
         </div>

@@ -48,7 +48,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
 
 return (
 <>
-<form onSubmit={handleSubmit}>
+<form className="bg-gray-100 p-5 border-2 border-neutral-900 rounded-lg" onSubmit={handleSubmit} >
 <SearchBar placeholder="Use Leap AI to search for anything" searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleChange = {handleChange}/>
 <SearchButton placeholder="search-button"/>
 </form>
