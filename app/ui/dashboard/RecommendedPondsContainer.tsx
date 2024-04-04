@@ -20,12 +20,14 @@ export default function RecommendedPondsContainer(){
             setUserPondsArr(data[0].user_topics)
         })
     },[])
-
+    
     const pondsArrFilter = pondsArr.filter((pond)=>{
         return !userPondsArr.includes(pond.id)
     })
 
-    const filteredPondsMap = pondsArrFilter.map((mappedPond)=>{
+    const uniquePondsSet = [...new Set(pondsArrFilter)]
+
+    const filteredPondsMap = uniquePondsSet.map((mappedPond)=>{
         return (
           <>
           <Suspense fallback={<Loading/>}>
