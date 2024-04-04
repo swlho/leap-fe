@@ -19,13 +19,12 @@ export async function getUserById(id:string){
     return res.json()
 }
 
-export async function putUserById(id:string,userUsername:string, userEmail:string,userTopicArr:any, userTopicId:string){
+export async function putUserById(id:string,userUsername:string, userEmail:string, userTopicId:string){
   
-  const putBody = JSON.stringify({username:userUsername, email:userEmail, user_topics:[userTopicId, ...userTopicArr]})
+  const putBody = JSON.stringify({username:userUsername, email:userEmail, user_topics:[userTopicId]})
   
-  console.log(putBody,"in function")
   const res = await fetch(`https://leap-backend-k05h.onrender.com/user/${id}`, {method: 'PUT', headers: {'Content-Type':'application/json'}, mode: 'cors', body: putBody})
-  console.log(res)
+
   const data = await res.json()
   if (res.status !== 200) {
       // This will activate the closest `error.js` Error Boundary
@@ -55,8 +54,6 @@ export async function getPondById(id:string){
     return res.json()
 }
 
-//querying Render/MongoDB get pond by pond name
-//if pond doesn't exist, BE will make a api call to AI to generate a new topic/pond summary and return this to the FE
 export async function getPondByName(pond:string){
   try {
     const res = await fetch(`https://leap-backend-k05h.onrender.com/topic/${pond}`)
@@ -130,7 +127,6 @@ export async function getCommentById(id:string){
       throw new Error('Failed to fetch data')
     }
     return res.json()
-}
 
 //Readinglist
 
@@ -142,4 +138,3 @@ export async function getBooksByTopicId(id:string){
     }
     return res.json()
 }
-

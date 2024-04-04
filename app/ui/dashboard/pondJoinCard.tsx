@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { getPondById } from "@/app/lib/data";
 import { useState } from "react";
 import CreateJoinButton from "./CreateJoinButton";
@@ -11,16 +10,8 @@ type Props = {
 
 export default function PondJoinCard({result, isFirstRequest, searchTerm}:Props){
 
-    const style = "border-solid border-2 m-3"
+    const style = "border-solid border-2 m-3 rounded-xl bg-green-300 shadow-sm"
     const [pondCardData, setPondCardData] = useState(null)
-
-    // console.log(result)
-    const pondDataById = () =>{
-        getPondById(result.id)
-        .then((data)=>{
-            setPondCardData(data)
-        })
-    }
 
 return isFirstRequest? 
 <div className={style}>
