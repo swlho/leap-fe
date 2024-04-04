@@ -11,9 +11,10 @@ type Props = {
     setResult: any;
     setSummaryDone:any;
     setIsFirstRequest:any;
+    setIsLoading:any;
 }
 
-export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult, setSummaryDone, setIsFirstRequest}:Props) {
+export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, setResult, setSummaryDone, setIsFirstRequest,setIsLoading}:Props) {
 
     const handleSubmit = async (event:any) => {
         event.preventDefault()
@@ -21,6 +22,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
         setResultFound(false)
         setSummaryDone(false)
         setIsFirstRequest(false)
+        setIsLoading(true)
         //api call
         await getPonds()
         .then(({data})=>{
@@ -28,6 +30,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
             if(pondData.length !== 0){
                 setResult(pondData[0])
                 setResultFound(true)
+                setIsLoading(false)
                 console.log('topic found in database!!!');
             }
             else{
@@ -37,6 +40,7 @@ export default function SearchForm ({searchTerm, setSearchTerm, setResultFound, 
                     setIsFirstRequest(true)
                     setResult(data[0])
                     setResultFound(true)
+                    setIsLoading(false)
             })
             }
         })
