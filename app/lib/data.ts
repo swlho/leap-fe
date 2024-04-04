@@ -97,6 +97,17 @@ export async function getPostById(id:string){
     return res.json()
 }
 
+export async function postPost(postBody: any){
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/post`, {method: 'POST', body: postBody, mode: 'cors'})
+  const data = await res.json()
+  if (res.status !== 200) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+  return data
+}
+
+
 //COMMENTS
 
 export async function getComments(){
@@ -111,6 +122,16 @@ export async function getComments(){
 
 export async function getCommentById(id:string){
   const res = await fetch(`https://leap-backend-k05h.onrender.com/comment/${id}`)
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+
+//Readinglist
+
+export async function getBooksByTopicId(id:string){
+  const res = await fetch(`https://leap-backend-k05h.onrender.com/book/${id}`)
   if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error('Failed to fetch data')
