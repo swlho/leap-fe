@@ -28,7 +28,7 @@ export default function CreateJoinButton({ children, className, isFirstRequest, 
     })
     .then((userTopicsArr)=>{
       console.log(id,"topic id")
-      putUserById('660d70386114563bf754fb5d','mkelling0','rdimbleby0@surveymonkey.com', userTopicsArr, id)
+      putUserById('660d70386114563bf754fb5d','mkelling0','rdimbleby0@surveymonkey.com', id)
       .then(()=>{
         console.log("user updated")
         setButtonClicked(clsx('flex h-10 items-center rounded-lg bg-green-400 px-4 text-sm font-medium text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'))
@@ -49,7 +49,7 @@ export default function CreateJoinButton({ children, className, isFirstRequest, 
       })
       .then((userTopicsArr)=>{
         console.log(id,"topic id")
-        putUserById('660d70386114563bf754fb5d','mkelling0','rdimbleby0@surveymonkey.com', userTopicsArr, id)
+        putUserById('660d70386114563bf754fb5d','mkelling0','rdimbleby0@surveymonkey.com', id)
         .then(()=>{
           console.log("user updated")
           setButtonClicked(clsx('flex h-10 items-center rounded-lg bg-green-400 px-4 text-sm font-medium text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'))
