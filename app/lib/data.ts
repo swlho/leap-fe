@@ -127,6 +127,7 @@ export async function getCommentById(id:string){
       throw new Error('Failed to fetch data')
     }
     return res.json()
+}
 
 //Readinglist
 
