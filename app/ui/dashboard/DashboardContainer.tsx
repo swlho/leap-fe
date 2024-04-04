@@ -1,10 +1,11 @@
-'use client'
+'use client';
 
-import SearchForm from "./searchForm";
-import ResultContainer from "./resultContainer";
-import RecommendedPondsContainer from "./RecommendedPondsContainer";
-import { useState } from "react";
+import SearchForm from './searchForm';
+import ResultContainer from './resultContainer';
+import RecommendedPondsContainer from './RecommendedPondsContainer';
+import { useState } from 'react';
 // import LeapFrogLoader from "../LeapFrogLoader";
+
 
 export default function DashboardContainer(){
     const [searchTerm, setSearchTerm] = useState('')
@@ -15,12 +16,12 @@ export default function DashboardContainer(){
 
 return (
 <>
-<SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResultFound={setResultFound} setResult={setResult} setSummaryDone={setSummaryDone} setIsFirstRequest={setIsFirstRequest}/>
-<ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
-{/* <LeapFrogLoader/> */}
-<p className="text-2xl m-5 font-lemonRegular">Your Recommended Ponds</p>
-<RecommendedPondsContainer/>
-</>
+  <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setResultFound={setResultFound} setResult={setResult} setSummaryDone={setSummaryDone} setIsFirstRequest={setIsFirstRequest}/>
+  <ResultContainer resultFound={resultFound} result={result} summaryDone={summaryDone} setSummaryDone={setSummaryDone} isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
+  <p className="text-2xl m-5 font-lemonRegular">Your Recommended Ponds</p>
+  <RecommendedPondsContainer/>
+  </>
 )
 
-}
+
+
