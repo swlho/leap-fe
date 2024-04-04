@@ -15,7 +15,7 @@ export default function ResultBox ({result, summaryDone, setSummaryDone, isFirst
 
     return (
     <>
-    <div className="bg-green-100">
+    <div className="bg-green-400 rounded-lg p-5">
         <TypeAnimation
         sequence={[`${result.summary}`, ()=>setSummaryDone(true)]}
         omitDeletionAnimation={true}

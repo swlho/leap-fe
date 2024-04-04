@@ -28,25 +28,28 @@ const PostForm = () =>{
     
     }
     return(
-      <form onSubmit={handleSubmit}>
-        <h1>Ask a Question</h1>
-        <label>Question</label>
-        <input className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 mb-2"
+      <>
+      <h1 className="font-lemonRegular text-3xl text-center mb-9">FORUM</h1>
+      <form className="bg-gray-100 shadow-xl p-5 mb-8 border-2 border-neutral-900 rounded-lg" onSubmit={handleSubmit}>
+        <h1 className="font-lemonRegular text-xl text-center mb-4">Ask a Question</h1>
+        <label className="font-lemonLight text-xl text-center mb-4">Question</label>
+        <input className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 mb-8"
         placeholder=''
         value={question} onChange={handleQuestion} />
-        <label>Details</label>
+        <label className="font-lemonLight text-xl text-center mb-4">Details</label>
          <textarea className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 mb-2"
         placeholder=''
         value={body} onChange={handleDetails} />
       <button type="submit"
         className={clsx(
-          'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
+          'btn btn-wide btn-warning mt-4',
           
         )}
       >
         Submit
       </button>
       </form>
+      </>
     )
 }
 export default PostForm

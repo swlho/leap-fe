@@ -11,7 +11,7 @@ type Props = {
 
 export default function PondJoinCard({result, isFirstRequest, searchTerm}:Props){
 
-    const style = "border-solid border-2 m-3"
+    const style = "border-solid border-2 mt-3 p-5 rounded-lg"
     const [pondCardData, setPondCardData] = useState(null)
 
     // console.log(result)
@@ -22,13 +22,17 @@ export default function PondJoinCard({result, isFirstRequest, searchTerm}:Props)
         })
     }
 
-return isFirstRequest? 
-<div className={style}>
-    A pond for '{`${result.topic_name}`}' does not exist.  Would you like to create one and join?
-    <CreateJoinButton isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
-</div> : 
-<div className={style}>
-    A pond for '{`${result.topic_name}`}' already exists.  Would you like to join?
-    <CreateJoinButton isFirstRequest={isFirstRequest}/>
-</div>
+return isFirstRequest ? (
+    <div className={style}>
+      <span className="font-lemonLight">
+        A pond for <span className="font-lemonBold">'{`${result.topic_name}`}' </span>does not exist.  Would you like to create one and join?
+      </span>
+      <CreateJoinButton isFirstRequest={isFirstRequest} searchTerm={searchTerm}/>
+    </div>
+  ) : (
+    <div className={style}>
+      A pond for '{`${result.topic_name}`}' already exists.  Would you like to join?
+      <CreateJoinButton isFirstRequest={isFirstRequest}/>
+    </div>
+  );
 }
