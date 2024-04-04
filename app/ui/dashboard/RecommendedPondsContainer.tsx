@@ -23,6 +23,7 @@ export default function RecommendedPondsContainer() {
       });
   }, []);
 
+
   const pondsArrFilter = pondsArr.filter((pond: any) => {
     return !userPondsArr.includes(pond.id);
   });
@@ -37,3 +38,4 @@ export default function RecommendedPondsContainer() {
 
   return isLoading ? <Loading /> : filteredPondsMap;
 }
+

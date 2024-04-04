@@ -2,14 +2,12 @@
 import {
     BookOpenIcon,
     QuestionMarkCircleIcon
-
-  } from '@heroicons/react/24/outline';
+    } from '@heroicons/react/24/outline';
 
 import { getPondById } from "@/app/lib/data"
 import ResourceLinks from "@/app/ui/ponds/resources"
 
-const PondPage = async ({params}:{params:{pondId:string}})=>{
-    console.log(params.pondId, '<<<<<<<<<<<<<<<<<<<<');
+const PondPage = async ({params}:{params:{pondId:string}})=>{;
     
     const links = [
         { name: 'Q&A', href: `/dashboard/ponds/${params.pondId}/posts`, icon: QuestionMarkCircleIcon },
@@ -24,10 +22,14 @@ const PondPage = async ({params}:{params:{pondId:string}})=>{
     })
 return (
     <>
-    <h2>{pondData.topic_name}</h2>
-    <br></br>
-    <p>{pondData.summary}</p>
-    <ResourceLinks links={links}/>
+        <div className='border-solid border-2 mt-3 p-5 rounded-lg'>
+            <h2 className="font-lemonRegular text-center text-3xl">{pondData.topic_name}</h2>
+            <br></br>
+            <p>{pondData.summary}</p>
+        </div>
+        <div>
+            <ResourceLinks links={links}/>
+        </div>
     </>
 )
 }
