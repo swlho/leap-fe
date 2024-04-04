@@ -1,12 +1,11 @@
 'use client'
 
-import { useState } from "react"
+
 import clsx from "clsx"
 import { postPost } from "@/app/lib/data"
 
-const PostForm = () =>{
-    const[question, setQuestion] = useState('')
-    const[body, setBody] = useState('')
+const PostForm = ({question, setQuestion, body, setBody, postBody, setPostBody, pondId}: any ) =>{
+    
 
     const handleQuestion = (event:any) => {
         setQuestion(event.target.value)
@@ -15,18 +14,42 @@ const PostForm = () =>{
 
     const handleDetails = (event:any) => {
         setBody(event.target.value)
-        
     }
 
-    const handleSubmit = async (event:any) => {
+    const handleSubmit = (event:any) => {
         event.preventDefault()
-        const postBody ={
-            title: question,
-            body:body
+        const postcontent = {
+          title: question,
+          post_body:body,
+          topic_id: pondId,
+          user_id: "660d70386114563bf754fb5d",
+          post_image: "",
+          type: "post",
+          votes: 0
         }
-        const newPost = await postPost(postBody)
-    
+        
+        setPostBody(postcontent)
+        postPost(postcontent)
+        .then(({data}) => {
+          setBody('')
+          setQuestion('')
+          setPostBody({
+            title: "",
+            post_body: "",
+            topic_id: "",
+            user_id: "",
+            post_image: "",
+            type: "",
+            votes: 0
+          })
+        })
+        .catch((err:any) => {
+          setBody('')
+          setQuestion('')
+          console.log(err)
+        })
     }
+      
     return(
       <>
       <h1 className="font-lemonRegular text-3xl text-center mb-9">FORUM</h1>

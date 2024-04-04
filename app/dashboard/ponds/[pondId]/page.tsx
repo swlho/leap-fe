@@ -2,8 +2,7 @@
 import {
     BookOpenIcon,
     QuestionMarkCircleIcon
-
-  } from '@heroicons/react/24/outline';
+    } from '@heroicons/react/24/outline';
 
 import { getPondById } from "@/app/lib/data"
 import ResourceLinks from "@/app/ui/ponds/resources"
