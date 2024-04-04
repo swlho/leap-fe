@@ -1,39 +1,39 @@
-'use client'
+'use client';
 
-import MyPondCard from "./myPondCard";
-import { getPonds, getUserById } from "@/app/lib/data";
-import { Suspense } from "react";
-import Loading from "@/app/dashboard/ponds/loading";
-import { useEffect, useState } from "react";
+import MyPondCard from './myPondCard';
+import { getPonds, getUserById } from '@/app/lib/data';
+import Loading from '../../ui/loading';
+import React, { useEffect, useState } from 'react';
+import { Pond, User } from '@/app/classes';
 
-export default function MyPondsContainer(){
-    const [pondsArr, setPondsArr] = useState([])
-    const [userMyPondsArr, setUserMyPondsArr] = useState([])
+export default function MyPondsContainer() {
+  const [pondsArr, setPondsArr] = useState<Pond[]>([]);
+  const [userMyPondsArr, setUserMyPondsArr] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(()=>{
-        getPonds()
-        .then(({data})=>{
-            console.log(data)
-            setPondsArr(data[0])
-        })
-        getUserById('660d70386114563bf754fb5d')
-        .then(({data})=>{
-            setUserMyPondsArr(data[0].user_topics)
-        })
-    },[])
+  useEffect(() => {
+    setIsLoading(true);
+    getPonds().then(({ data }) => {
+      setIsLoading(false);
+      setPondsArr(data[0]);
+    });
+    getUserById('660d70386114563bf754fb5d').then(({ data }) => {
+      setUserMyPondsArr(data[0].user_topics);
+      setIsLoading(false);
+    });
+  }, []);
 
-    const pondsArrFilter = pondsArr.filter((pond)=>{
-        return userMyPondsArr.includes(pond.id)
-    })
+  const pondsArrFilter = pondsArr.filter((pond: any) => {
+    return userMyPondsArr.includes(pond.id);
+  });
 
-    const filteredPondsMap = pondsArrFilter.map((mappedPond)=>{
-        return (
-          <>
-          <Suspense fallback={<Loading/>}>
-            <MyPondCard key={mappedPond.id} mappedPond={mappedPond}/>
-          </Suspense>
-          </>
-        )
-    })
-    return filteredPondsMap
+  const filteredPondsMap = pondsArrFilter.map((mappedPond) => {
+    return (
+      <React.Fragment key={mappedPond.id}>
+        <MyPondCard mappedPond={mappedPond} />
+      </React.Fragment>
+    );
+  });
+
+  return isLoading ? <Loading /> : filteredPondsMap;
 }

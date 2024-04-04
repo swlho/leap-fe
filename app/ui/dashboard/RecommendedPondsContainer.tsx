@@ -10,7 +10,7 @@ export default function RecommendedPondsContainer() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     Promise.all([getPonds(), getUserById('660d70386114563bf754fb5d')])
       .then(([pondsResponse, userResponse]) => {
         setPondsArr(pondsResponse.data[0]);
@@ -23,7 +23,6 @@ export default function RecommendedPondsContainer() {
       });
   }, []);
 
-
   const pondsArrFilter = pondsArr.filter((pond: any) => {
     return !userPondsArr.includes(pond.id);
   });
@@ -31,11 +30,10 @@ export default function RecommendedPondsContainer() {
   const filteredPondsMap = pondsArrFilter.map((mappedPond, index) => {
     return (
       <React.Fragment key={index}>
-        <RecommendedPondCard mappedPond={mappedPond} />
+          <RecommendedPondCard mappedPond={mappedPond} />
       </React.Fragment>
     );
   });
 
-  return isLoading ? <Loading /> : filteredPondsMap;
+  return  isLoading ?  <Loading /> : filteredPondsMap;
 }
-
