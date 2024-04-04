@@ -15,7 +15,7 @@ export default function RecommendedPondsContainer(){
         .then(({data})=>{
             setPondsArr(data[0])
         })
-        getUserById('660d383ed53a3ca35a0ff9d9')
+        getUserById('660d70386114563bf754fb5d')
         .then(({data})=>{
             setUserPondsArr(data[0].user_topics)
         })

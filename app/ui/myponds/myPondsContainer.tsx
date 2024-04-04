@@ -16,7 +16,7 @@ export default function MyPondsContainer(){
             console.log(data)
             setPondsArr(data[0])
         })
-        getUserById('660d383ed53a3ca35a0ff9d9')
+        getUserById('660d70386114563bf754fb5d')
         .then(({data})=>{
             setUserMyPondsArr(data[0].user_topics)
         })
