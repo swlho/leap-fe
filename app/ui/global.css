@@ -33,3 +33,17 @@ input[type='number']::-webkit-outer-spin-button {
     src: url('/LEMONMILK-Light.otf') format('opentype');
   }
 }
+
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vote_comment {
+  display: inline-block;
+  width: fit-content;
+  align-self: center;
+}
+
