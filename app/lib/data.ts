@@ -1,7 +1,5 @@
 //USERS
 
-import { stringify } from "querystring"
-
 export async function getUsers(){
   const res = await fetch("https://leap-backend-k05h.onrender.com/user")
   if (!res.ok) {
