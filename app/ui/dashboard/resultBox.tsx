@@ -18,7 +18,7 @@ export default function ResultBox ({result, summaryDone, setSummaryDone, isFirst
     <div className="bg-green-400 rounded-lg p-5">
         <Typing
         onFinishedTyping={()=>setSummaryDone(true)}
-        speed={300}
+        speed={500}
         className='result-text'
         >{result.summary}</Typing>
     </div>
