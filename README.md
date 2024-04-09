@@ -10,7 +10,7 @@ The project showcases the use of modern frontend development techniques and prac
 
 ## Live Demo
 
-You can access the live demo of the project [here](https://leap-1i7mfs9mn-swlhos-projects.vercel.app/).
+You can access the live demo of the project [here](https://leap-lilac.vercel.app/).
 
 ## Backend Repository
 
